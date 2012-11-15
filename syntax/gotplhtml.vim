@@ -10,5 +10,4 @@ runtime! syntax/gotpl.vim
 runtime! syntax/html.vim
 unlet b:current_syntax
 
-
 let b:current_syntax = "gotplhtml"
