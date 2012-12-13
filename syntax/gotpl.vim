@@ -71,6 +71,7 @@ hi def link     gotplControl        Keyword
 hi def link     gotplFunctions      Keyword
 
 syn region gotplAction start="{{" end="}}" contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable display
+syn region gotplAction start="\[\[" end="\]\]" contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable display
 
 hi def link gotplAction PreProc
 
