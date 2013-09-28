@@ -64,15 +64,20 @@ hi def link     goImaginary  Number
 " Token groups
 syn cluster     gotplLiteral     contains=goString,goRawString,goCharacter,@goInt,goFloat,goImaginary
 syn keyword     gotplControl     contained   if else end range with template
-syn keyword     gotplFunctions   contained   and html index js len not or print printf println urlquery
+syn keyword     gotplFunctions   contained   and html index js len not or print printf println urlquery eq ne lt le gt ge
 syn match       gotplVariable    contained   /\$[^ ]*\>/
+syn match       goTplIdentifier  contained   /\.[^ ]*\>/
 
 hi def link     gotplControl        Keyword
-hi def link     gotplFunctions      Keyword
+hi def link     gotplFunctions      Function
+hi def link     goTplVariable       Special
 
-syn region gotplAction start="{{" end="}}" contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable display
+syn region gotplAction start="{{" end="}}" contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable,goTplIdentifier display
 syn region gotplAction start="\[\[" end="\]\]" contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable display
+syn region goTplComment start="{{/\*" end="\*/}}" display
+syn region goTplComment start="\[\[/\*" end="\*/\]\]" display
 
 hi def link gotplAction PreProc
+hi def link goTplComment Comment
 
 let b:current_syntax = "gotpl"
